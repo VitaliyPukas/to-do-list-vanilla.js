@@ -1,0 +1,320 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Monda&display=swap");
+:root {
+  --mine-text-color: #3E3B3B;
+  --bg-input: #A8D2A5;
+  --bg-mine: #ACD4E1;
+  --booble-mine: rgb(133, 152, 172);
+  --business: #caaa40;
+  --personal: #49208c;
+  --sport: #37d822;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --business-glov: 0px 0px 4px rgba(58, 130, 238, 0.75);
+  --personal-glov: 0px 0px 4px rgba(144, 43, 174, 0.75);
+  --sport-glov: 0px 0px 4px rgba(62, 237, 103, 0.75);
+}
+
+.wrapper {
+  position: fixed;
+  /*Отсоединяем контейнер от страницы и фиксируем в окне браузера*/
+  width: 100%;
+  /*Ширина на все окно браузера*/
+  height: 100%;
+  /*Высота на все окно браузера*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /*Превращаем контейнер в flexBox*/
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /*Расставляем дочерние элементы по вертикали*/
+}
+
+.container {
+  font-family: 'Monda', sans-serif;
+  max-width: 800px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 29px;
+  margin: 0 auto;
+}
+
+.cloud {
+  background: url(/img/bg.png) no-repeat;
+  background-size: contain;
+}
+
+header {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  /*Запрещаем увеличиваться*/
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  /*Запрещаем сжиматься*/
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+}
+
+header h1 {
+  font-size: 48px;
+  padding: 20px 0;
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  line-height: 78px;
+  letter-spacing: 0.25em;
+}
+
+header .create_new_task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+header .create_new_task .create_all {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  padding: 5px 20px;
+  background-color: var(--bg-input);
+  border: none;
+}
+
+header .create_new_task .create_all::-webkit-input-placeholder {
+  color: black;
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+header .create_new_task .create_all:-ms-input-placeholder {
+  color: black;
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+header .create_new_task .create_all::-ms-input-placeholder {
+  color: black;
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+header .create_new_task .create_all::placeholder {
+  color: black;
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+header .create_new_task #add {
+  color: --mine-text-color;
+  width: 300px;
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 30px;
+  border: none;
+  background: -webkit-gradient(linear, left top, right top, from(#A8D2A5), color-stop(115.2%, #ACD4E1));
+  background: linear-gradient(90deg, #A8D2A5 0%, #ACD4E1 115.2%);
+}
+
+header .create_new_task #add:hover {
+  background: -webkit-gradient(linear, left top, right top, from(#ACD4E1), color-stop(115.2%, #A8D2A5));
+  background: linear-gradient(90deg, #ACD4E1 0%, #A8D2A5 115.2%);
+}
+
+main {
+  overflow-y: auto;
+  /*Вертикальная полоса прокрутки для текста*/
+  padding: 10px;
+  /*отступы текста со всех сторон*/
+  text-align: justify;
+  /*выравнивание текста по левому и правому краям*/
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  /*Предписываем занять все свободное пространство*/
+}
+
+main #todo_list {
+  list-style: none;
+  padding: 0;
+}
+
+main #todo_list li {
+  margin-top: 20px;
+}
+
+main #todo_list li .todo_list_top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 2px solid #3E3B3B;
+}
+
+main #todo_list li .todo_list_top .list_top_left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 18px;
+}
+
+main #todo_list li .todo_list_top .list_top_left h4 {
+  font-size: 18px;
+  margin: 0;
+  padding-left: 20px;
+  font-weight: 400;
+}
+
+main #todo_list li .todo_list_top .list_top_left i {
+  font-size: 25px;
+}
+
+main #todo_list li .todo_list_top .list_top_left .done::before {
+  color: #37d822;
+}
+
+main #todo_list li .todo_list_top .list_top_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main #todo_list li .todo_list_top .list_top_right button {
+  border: none;
+  background: none;
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+main #todo_list li .todo_list_top .list_top_right .icon-edit-3 {
+  color: green;
+}
+
+main #todo_list li .todo_list_top .list_top_right .icon-edit-3:hover {
+  font-size: 26px;
+  color: #5eae5e;
+}
+
+main #todo_list li .todo_list_top .list_top_right .icon-trash-2-1 {
+  color: #df2f2f;
+}
+
+main #todo_list li .todo_list_top .list_top_right .icon-trash-2-1:hover {
+  font-size: 26px;
+  color: #7b1616;
+}
+
+main #todo_list li .todo_list_bottom {
+  margin: 0;
+  font-size: 14px;
+  line-height: 23px;
+  color: #3E3B3B;
+}
+
+footer {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  /*Запрещаем увеличиваться*/
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  /*Запрещаем сжиматься*/
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  background-color: var(--bg-mine);
+  width: 800px;
+  height: 50px;
+  margin: 20px auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+  padding: 0;
+}
+
+footer ul li {
+  padding: 5px 20px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: var(--mine-text-color);
+  font-size: 20px;
+  color: var(--mine-text-color) !important;
+}
+
+footer ul li a:hover {
+  font-size: 25px;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+footer ul li a:hover .icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+footer ul li a:hover .icon:hover {
+  font-size: 22px;
+}
+
+footer ul li a:hover .icon-edit-3 {
+  color: green;
+}
+
+footer ul li a:hover .icon-trash-2-1 {
+  color: #c72a2a;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 500px;
+    background: none;
+  }
+  .cloud {
+    background: url(/img/bg.png) no-repeat;
+    background-position-x: -100px;
+  }
+  footer {
+    width: 500px;
+  }
+  footer ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 300px;
+  }
+  header h1 {
+    text-align: justify;
+    text-align-last: justify;
+    font-size: 46px;
+    padding-bottom: 0;
+  }
+  header #create_desctiption {
+    height: 125px;
+  }
+  footer {
+    width: 100%;
+  }
+}
