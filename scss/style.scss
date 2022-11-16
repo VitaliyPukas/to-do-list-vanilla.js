@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
+
+:root {
+    --mine-text-color: #3E3B3B;
+    --bg-input: #A8D2A5;
+    --bg-mine: #ACD4E1;
+    --booble-mine: rgb(133, 152, 172);
+    --business: #caaa40;
+    --personal: #49208c;
+    --sport: #37d822;
+
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    --business-glov: 0px 0px 4px rgba(58, 130, 238, 0.75);
+    --personal-glov: 0px 0px 4px rgba(144, 43, 174, 0.75);
+    --sport-glov: 0px 0px 4px rgba(62, 237, 103, 0.75);
+}
+
+
+
+.wrapper {
+    position: fixed;
+    /*Отсоединяем контейнер от страницы и фиксируем в окне браузера*/
+    width: 100%;
+    /*Ширина на все окно браузера*/
+    height: 100%;
+    /*Высота на все окно браузера*/
+    display: flex;
+    /*Превращаем контейнер в flexBox*/
+    flex-direction: column;
+    /*Расставляем дочерние элементы по вертикали*/
+}
+
+.container {
+    font-family: 'Monda', sans-serif;
+    max-width: 800px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 29px;
+    margin: 0 auto;
+}
+
+.cloud {
+    background: url(/img/bg.png)no-repeat;
+    background-size: contain;
+}
+
+
+header {
+    flex-grow: 0;
+    /*Запрещаем увеличиваться*/
+    flex-shrink: 0;
+    /*Запрещаем сжиматься*/
+    flex-basis: auto;
+
+    h1 {
+        font-size: 48px;
+        padding: 20px 0;
+        margin: 0;
+        text-align: center;
+        font-weight: 700;
+        line-height: 78px;
+        letter-spacing: 0.25em;
+    }
+
+    .create_new_task {
+        display: flex;
+        flex-wrap: wrap;
+
+        .create_all {
+            width: 100%;
+            height: 40px;
+            margin-top: 20px;
+            padding: 5px 20px;
+            background-color: var(--bg-input);
+            border: none;
+
+            &::placeholder {
+                color: black;
+                opacity: 0.5;
+                font-size: 18px;
+            }
+        }
+
+        #add {
+            color: --mine-text-color;
+            width: 300px;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 30px;
+            border: none;
+            background: linear-gradient(90deg, #A8D2A5 0%, #ACD4E1 115.2%);
+
+            &:hover {
+                background: linear-gradient(90deg, #ACD4E1 0%, #A8D2A5 115.2%);
+            }
+        }
+    }
+}
+
+
+
+
+
+//RENDER-LIST
+main {
+    overflow-y: auto;
+    /*Вертикальная полоса прокрутки для текста*/
+    padding: 10px;
+    /*отступы текста со всех сторон*/
+    text-align: justify;
+    /*выравнивание текста по левому и правому краям*/
+    flex-grow: 1;
+
+    /*Предписываем занять все свободное пространство*/
+    #todo_list {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin-top: 20px;
+
+            .todo_list_top {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 2px solid #3E3B3B;
+
+                .list_top_left {
+                    display: flex;
+                    font-size: 18px;
+
+                    h4 {
+                        font-size: 18px;
+                        margin: 0;
+                        padding-left: 20px;
+                        font-weight: 400;
+                    }
+
+
+                    i {
+                        font-size: 25px;
+                    }
+
+                    .done::before {
+                        color: #37d822;
+                    }
+
+                }
+
+                .list_top_right {
+                    display: flex;
+
+                    button {
+                        border: none;
+                        background: none;
+                        font-size: 24px;
+                        margin-right: 20px;
+                    }
+
+                    .icon-edit-3 {
+                        color: green;
+
+                        &:hover {
+                            font-size: 26px;
+                            color: rgb(94, 174, 94);
+                        }
+                    }
+
+                    .icon-trash-2-1 {
+
+
+                        color: rgb(223, 47, 47);
+
+                        &:hover {
+                            font-size: 26px;
+                            color: rgb(123, 22, 22);
+                        }
+                    }
+                }
+            }
+
+            .todo_list_bottom {
+                margin: 0;
+                font-size: 14px;
+                line-height: 23px;
+                color: #3E3B3B;
+            }
+        }
+    }
+}
+
+
+//FOOTER
+
+footer {
+    flex-grow: 0;
+    /*Запрещаем увеличиваться*/
+    flex-shrink: 0;
+    /*Запрещаем сжиматься*/
+    flex-basis: auto;
+
+    background-color: var(--bg-mine);
+    width: 800px;
+    height: 50px;
+    margin: 20px auto 0;
+    display: flex;
+
+    ul {
+        list-style: none;
+        display: flex;
+        margin-top: 10px;
+        padding: 0;
+
+        li {
+            padding: 5px 20px;
+
+            a {
+                text-decoration: none;
+                color: var(--mine-text-color);
+                font-size: 20px;
+                color: var(--mine-text-color) !important;
+
+                &:hover {
+                    font-size: 25px;
+                    transition: 0.3s ease-in-out;
+
+                    .icon {
+                        font-size: 20px;
+                        margin-right: 10px;
+
+                        &:hover {
+                            font-size: 22px;
+                        }
+                    }
+
+                    .icon-edit-3 {
+                        color: green;
+                    }
+
+                    .icon-trash-2-1 {
+                        color: rgb(199, 42, 42);
+                    }
+                }
+            }
+        }
+    }
+}
+
+//MEDIA
+@media (max-width: 768px) {
+
+    .container {
+        width: 500px;
+        background: none;
+    }
+
+    .cloud {
+        background: url(/img/bg.png) no-repeat;
+        background-position-x: -100px;
+    }
+
+    footer {
+        width: 500px;
+
+        ul {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 300px;
+    }
+
+    header {
+        h1 {
+            text-align: justify;
+            text-align-last: justify;
+            font-size: 46px;
+            padding-bottom: 0;
+        }
+
+        #create_desctiption {
+            height: 125px;
+        }
+    }
+
+    footer {
+        width: 100%;
+    }
+}
