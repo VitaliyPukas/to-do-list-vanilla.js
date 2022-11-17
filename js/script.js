@@ -41,12 +41,12 @@ function addTask(e) {
         <li id="${newTask.id}" class="list_item">
             <div class="todo_list_top">
                 <div class="list_top_left">
-                    <i class="icon-check-circle" data-action="done"></i>
+                    <i class="bi bi-circle check-item" data-action="done"></i>
                     <input class="list_title" value="${newTask.title}" readonly></input>
                 </div>
                 <div class="list_top_right">
                     <button class="icon-edit-3" data-action="edit"></button>
-                    <button class="save-edit" data-action="save-edit">save</button>
+                    <button class="save-edit icon-floppy-disk" data-action="save-edit"></button>
                     <button class="icon-trash-2-1" data-action="delete"></button>
                 </div>
             </div>
@@ -103,14 +103,18 @@ function editTask(e) {
 function checkTask(e) {
     if (e.target.dataset.action === "done") {
         const parentItem = e.target.closest('li');
-        const checkItem = parentItem.querySelector('.icon-check-circle');
+        const checkItem = parentItem.querySelector('.check-item');
         const checkTitle = parentItem.querySelector('.list_title');
         const checkDescription = parentItem.querySelector('.todo_list_bottom');
         checkItem.classList.toggle('done');
         if (checkItem.classList.contains('done')) {
+            checkItem.classList.add('bi-check-circle');
+            checkItem.classList.remove('bi-circle');
             checkTitle.classList.add('crossed');
             checkDescription.classList.add('crossed');
         }else{
+            checkItem.classList.remove('bi-check-circle');
+            checkItem.classList.add('bi-circle');
             checkTitle.classList.remove('crossed');
             checkDescription.classList.remove('crossed');
         }
