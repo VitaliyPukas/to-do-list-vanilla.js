@@ -46,6 +46,11 @@
   background-size: contain;
 }
 
+.crossed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 header {
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
@@ -162,13 +167,6 @@ main #todo_list li .todo_list_top .list_top_left {
   display: -ms-flexbox;
   display: flex;
   font-size: 18px;
-}
-
-main #todo_list li .todo_list_top .list_top_left h4 {
-  font-size: 18px;
-  margin: 0;
-  padding-left: 20px;
-  font-weight: 400;
 }
 
 main #todo_list li .todo_list_top .list_top_left i {

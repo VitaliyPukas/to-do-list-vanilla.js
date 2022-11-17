@@ -45,6 +45,12 @@
     background-size: contain;
 }
 
+.crossed{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+
 
 header {
     flex-grow: 0;
@@ -129,14 +135,7 @@ main {
                     display: flex;
                     font-size: 18px;
 
-                    h4 {
-                        font-size: 18px;
-                        margin: 0;
-                        padding-left: 20px;
-                        font-weight: 400;
-                    }
-
-
+                   
                     i {
                         font-size: 25px;
                     }

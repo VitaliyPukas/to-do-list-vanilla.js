@@ -102,10 +102,17 @@ function editTask(e) {
 
 function checkTask(e) {
     if (e.target.dataset.action === "done") {
-        const parentIte = e.target.closest('li');
-        const checkItem = parentIte.querySelector('.icon-check-circle');
-        const checkTitle = parentIte.querySelector('.list_title');
-        checkTitle.classList.add('check_title');
+        const parentItem = e.target.closest('li');
+        const checkItem = parentItem.querySelector('.icon-check-circle');
+        const checkTitle = parentItem.querySelector('.list_title');
+        const checkDescription = parentItem.querySelector('.todo_list_bottom');
         checkItem.classList.toggle('done');
+        if (checkItem.classList.contains('done')) {
+            checkTitle.classList.add('crossed');
+            checkDescription.classList.add('crossed');
+        }else{
+            checkTitle.classList.remove('crossed');
+            checkDescription.classList.remove('crossed');
+        }
     }
 }
