@@ -3,7 +3,7 @@ class Parent {
         this.addHello()
     }
     addHello() {
-        return alert('Hello')
+        return alert('Hellonllknsdsdsdsdlkn')
     }
     // render() {
     //     return `<div>hello task</div>`

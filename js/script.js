@@ -42,14 +42,15 @@ function addTask(e) {
             <div class="todo_list_top">
                 <div class="list_top_left">
                     <i class="icon-check-circle" data-action="done"></i>
-                    <input class="list_title" value="${newTask.title}"></input>
+                    <input class="list_title" value="${newTask.title}" readonly></input>
                 </div>
                 <div class="list_top_right">
                     <button class="icon-edit-3" data-action="edit"></button>
+                    <button class="save-edit" data-action="save-edit">save</button>
                     <button class="icon-trash-2-1" data-action="delete"></button>
                 </div>
             </div>
-            <p class="todo_list_bottom">${newTask.description}</p>
+            <input class="todo_list_bottom" value="${newTask.description}" readonly></input>
         </li>`
 
     // Додаємо задачу в список
@@ -74,20 +75,28 @@ function deleteTask(e) {
         //     }
         // })
         parentItem.remove();
-    }   
+    }
 }
 
 function editTask(e) {
-    if (e.target.dataset.action === "edit"){
-        console.log("edit");
-        const parentItem = e.target.closest('li');
-        console.log(typeof(+parentItem.id) );
-        const taskTitle = parentItem.querySelector('.list_title');
-        const taskDescription =parentItem.querySelector('todo_list_bottom');
-        const carentlyItem = tasks.find(task => task.id === +parentItem.id)
-       console.log(carentlyItem);
-       carentlyItem.title = taskTitle.value
+    const parentItem = e.target.closest('li');
+    const taskTitle = parentItem.querySelector('.list_title');
+    const taskDescription = parentItem.querySelector('.todo_list_bottom');
+    const carentlyItem = tasks.find(task => task.id === +parentItem.id);
 
+    if (e.target.dataset.action === "edit") {
+        console.log("edit");
+        console.log(carentlyItem.title);
+        carentlyItem.title = taskTitle.value;
+        taskTitle.removeAttribute("readonly");
+        taskTitle.focus();
+        carentlyItem.description = taskDescription.value;
+        taskDescription.removeAttribute("readonly");
+    }
+    if (e.target.dataset.action === "save-edit") {
+        console.log("save-edit");
+        taskTitle.setAttribute("readonly", true);
+        taskDescription.setAttribute("readonly", true);
     }
 }
 
