@@ -51,12 +51,12 @@
   opacity: 0.5;
 }
 
-.edit-none {
-  display: none;
+.block {
+  display: block;
 }
 
-.edit-block {
-  display: block;
+.none {
+  display: none;
 }
 
 header {
@@ -179,6 +179,7 @@ main #todo_list li .todo_list_top .list_top_left {
 
 main #todo_list li .todo_list_top .list_top_left i {
   font-size: 25px;
+  margin-right: 10px;
 }
 
 main #todo_list li .todo_list_top .list_top_left .done::before {

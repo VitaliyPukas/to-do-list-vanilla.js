@@ -50,11 +50,18 @@
     opacity: 0.5;
 }
 
-.edit-none {
-    display: none;
-}
-.edit-block {
+// .edit-none {
+//     display: none;
+// }
+// .edit-block {
+//     display: block;
+// }
+
+.block{
     display: block;
+}
+.none {
+    display: none;
 }
 
 
@@ -142,10 +149,12 @@ main {
                     display: flex;
                     font-size: 18px;
 
-                   
                     i {
                         font-size: 25px;
+                        margin-right: 10px;
                     }
+
+                    
 
                     .done::before {
                         color: #37d822;

@@ -46,7 +46,7 @@ function addTask(e) {
                 </div>
                 <div class="list_top_right">
                     <button class="icon-edit-3 edit" data-action="edit"></button>
-                    <button class="save-edit bi bi-save edit-none" data-action="save-edit"></button>
+                    <button class="save-edit bi bi-save edit-none none" data-action="save-edit"></button>
                     <button class="icon-trash-2-1" data-action="delete"></button>
                 </div>
             </div>
@@ -93,14 +93,16 @@ function editTask(e) {
         taskTitle.focus();
         carentlyItem.description = taskDescription.value;
         taskDescription.removeAttribute("readonly");
-        edit.classList.add('edit-none');
-        saveEdit.classList.add('edit-block');
+
+        edit.classList.add('none');
+        
+        saveEdit.classList.remove('none');
     }
     if (e.target.dataset.action === "save-edit") {
         taskTitle.setAttribute("readonly", true);
         taskDescription.setAttribute("readonly", true);
-        edit.classList.add('edit-block');
-        saveEdit.classList.remove('edit-block');
+        edit.classList.remove('none');
+        saveEdit.classList.add('none');
     }
 }
 
