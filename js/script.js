@@ -45,8 +45,8 @@ function addTask(e) {
                     <input class="list_title" value="${newTask.title}" readonly></input>
                 </div>
                 <div class="list_top_right">
-                    <button class="icon-edit-3" data-action="edit"></button>
-                    <button class="save-edit icon-floppy-disk" data-action="save-edit"></button>
+                    <button class="icon-edit-3 edit" data-action="edit"></button>
+                    <button class="save-edit bi bi-save edit-none" data-action="save-edit"></button>
                     <button class="icon-trash-2-1" data-action="delete"></button>
                 </div>
             </div>
@@ -81,22 +81,26 @@ function deleteTask(e) {
 function editTask(e) {
     const parentItem = e.target.closest('li');
     const taskTitle = parentItem.querySelector('.list_title');
+    const saveEdit = parentItem.querySelector('.save-edit');
+    const edit = parentItem.querySelector('.edit');
     const taskDescription = parentItem.querySelector('.todo_list_bottom');
     const carentlyItem = tasks.find(task => task.id === +parentItem.id);
 
     if (e.target.dataset.action === "edit") {
-        console.log("edit");
         console.log(carentlyItem.title);
         carentlyItem.title = taskTitle.value;
         taskTitle.removeAttribute("readonly");
         taskTitle.focus();
         carentlyItem.description = taskDescription.value;
         taskDescription.removeAttribute("readonly");
+        edit.classList.add('edit-none');
+        saveEdit.classList.add('edit-block');
     }
     if (e.target.dataset.action === "save-edit") {
-        console.log("save-edit");
         taskTitle.setAttribute("readonly", true);
         taskDescription.setAttribute("readonly", true);
+        edit.classList.add('edit-block');
+        saveEdit.classList.remove('edit-block');
     }
 }
 

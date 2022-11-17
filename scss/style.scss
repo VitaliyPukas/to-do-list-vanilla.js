@@ -50,6 +50,13 @@
     opacity: 0.5;
 }
 
+.edit-none {
+    display: none;
+}
+.edit-block {
+    display: block;
+}
+
 
 
 header {
@@ -164,6 +171,7 @@ main {
                             color: rgb(94, 174, 94);
                         }
                     }
+
 
                     .icon-trash-2-1 {
 

@@ -51,6 +51,14 @@
   opacity: 0.5;
 }
 
+.edit-none {
+  display: none;
+}
+
+.edit-block {
+  display: block;
+}
+
 header {
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
