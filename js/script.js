@@ -42,7 +42,7 @@ function addTask(e) {
             <div class="todo_list_top">
                 <div class="list_top_left">
                     <i class="icon-check-circle" data-action="done"></i>
-                    <h4 class="list_title">${newTask.title}</h4>
+                    <input class="list_title" value="${newTask.title}"></input>
                 </div>
                 <div class="list_top_right">
                     <button class="icon-edit-3" data-action="edit"></button>
@@ -64,7 +64,7 @@ function addTask(e) {
 function deleteTask(e) {
     if (e.target.dataset.action === 'delete') {
         const parentItem = e.target.closest('li');
-        const id = Number(parentItem.id);
+        // const id = Number(parentItem.id);
 
         // tasks = tasks.filter(function (task) {
         //     if(task.id === id){
@@ -79,8 +79,15 @@ function deleteTask(e) {
 
 function editTask(e) {
     if (e.target.dataset.action === "edit"){
+        console.log("edit");
         const parentItem = e.target.closest('li');
-        
+        console.log(typeof(+parentItem.id) );
+        const taskTitle = parentItem.querySelector('.list_title');
+        const taskDescription =parentItem.querySelector('todo_list_bottom');
+        const carentlyItem = tasks.find(task => task.id === +parentItem.id)
+       console.log(carentlyItem);
+       carentlyItem.title = taskTitle.value
+
     }
 }
 
