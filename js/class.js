@@ -1,21 +1,16 @@
-class Parent {
-    constructor() {
-        this.addHello()
-    }
-    addHello() {
-        return alert('Hellonllknsdsdsdsdlkn')
-    }
-    // render() {
-    //     return `<div>hello task</div>`
-    // }
-}
-const child = new Parent("new information")
+// class Parent {
+//     constructor() {
+//         this.addHello()
+//     }
+//     addHello() {
+//         return alert('Hellonllknsdsdsdsdlkn')
+//     }
+// }
+// const child = new Parent("new information")
 
+// console.log(child.addHello);
 
-
-console.log(child.addHello);
-
-
+//! 
 const form = document.querySelector('#form');
 const taskTitle = document.querySelector('#create_title');
 const taskDescription = document.querySelector('#create_description');
