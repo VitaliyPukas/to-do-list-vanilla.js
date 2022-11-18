@@ -16,20 +16,15 @@
 
 .wrapper {
   position: fixed;
-  /*Отсоединяем контейнер от страницы и фиксируем в окне браузера*/
   width: 100%;
-  /*Ширина на все окно браузера*/
   height: 100%;
-  /*Высота на все окно браузера*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /*Превращаем контейнер в flexBox*/
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  /*Расставляем дочерние элементы по вертикали*/
 }
 
 .container {
@@ -46,16 +41,23 @@
   background-size: contain;
 }
 
-header {
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-  /*Запрещаем увеличиваться*/
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  /*Запрещаем сжиматься*/
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto;
+.crossed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.block {
+  display: block;
+}
+
+.none {
+  display: none;
+}
+
+input {
+  border: none;
+  display: block;
+  width: 80%;
 }
 
 header h1 {
@@ -107,6 +109,10 @@ header .create_new_task .create_all::placeholder {
   color: black;
   opacity: 0.5;
   font-size: 18px;
+}
+
+header .create_new_task textarea {
+  padding-top: 20px !important;
 }
 
 header .create_new_task #add {
@@ -162,17 +168,12 @@ main #todo_list li .todo_list_top .list_top_left {
   display: -ms-flexbox;
   display: flex;
   font-size: 18px;
-}
-
-main #todo_list li .todo_list_top .list_top_left h4 {
-  font-size: 18px;
-  margin: 0;
-  padding-left: 20px;
-  font-weight: 400;
+  width: 100%;
 }
 
 main #todo_list li .todo_list_top .list_top_left i {
   font-size: 25px;
+  margin-right: 10px;
 }
 
 main #todo_list li .todo_list_top .list_top_left .done::before {
