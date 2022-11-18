@@ -20,15 +20,10 @@
 
 .wrapper {
     position: fixed;
-    /*Отсоединяем контейнер от страницы и фиксируем в окне браузера*/
     width: 100%;
-    /*Ширина на все окно браузера*/
     height: 100%;
-    /*Высота на все окно браузера*/
     display: flex;
-    /*Превращаем контейнер в flexBox*/
     flex-direction: column;
-    /*Расставляем дочерние элементы по вертикали*/
 }
 
 .container {
@@ -45,34 +40,27 @@
     background-size: contain;
 }
 
-.crossed{
+.crossed {
     text-decoration: line-through;
     opacity: 0.5;
 }
 
-// .edit-none {
-//     display: none;
-// }
-// .edit-block {
-//     display: block;
-// }
-
-.block{
+.block {
     display: block;
 }
+
 .none {
     display: none;
 }
 
-
+input {
+    border: none;
+    display: block;
+    width: 80%;
+    outline: none;
+}
 
 header {
-    flex-grow: 0;
-    /*Запрещаем увеличиваться*/
-    flex-shrink: 0;
-    /*Запрещаем сжиматься*/
-    flex-basis: auto;
-
     h1 {
         font-size: 48px;
         padding: 20px 0;
@@ -102,6 +90,10 @@ header {
             }
         }
 
+        textarea {
+            padding-top: 20px !important;
+        }
+
         #add {
             color: --mine-text-color;
             width: 300px;
@@ -117,9 +109,6 @@ header {
         }
     }
 }
-
-
-
 
 
 //RENDER-LIST
@@ -148,18 +137,16 @@ main {
                 .list_top_left {
                     display: flex;
                     font-size: 18px;
+                    width: 100%;
 
                     i {
                         font-size: 25px;
                         margin-right: 10px;
                     }
 
-                    
-
                     .done::before {
                         color: #37d822;
                     }
-
                 }
 
                 .list_top_right {
@@ -181,10 +168,7 @@ main {
                         }
                     }
 
-
                     .icon-trash-2-1 {
-
-
                         color: rgb(223, 47, 47);
 
                         &:hover {
@@ -204,7 +188,6 @@ main {
         }
     }
 }
-
 
 //FOOTER
 
