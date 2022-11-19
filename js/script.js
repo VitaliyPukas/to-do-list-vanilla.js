@@ -65,15 +65,6 @@ function addTask(e) {
 function deleteTask(e) {
     if (e.target.dataset.action === 'delete') {
         const parentItem = e.target.closest('li');
-        // const id = Number(parentItem.id);
-
-        // tasks = tasks.filter(function (task) {
-        //     if(task.id === id){
-        //         return false
-        //     } else {
-        //         return true
-        //     }
-        // })
         parentItem.remove();
     }
 }
