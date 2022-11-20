@@ -3,10 +3,22 @@ const taskTitle = document.querySelector('#create_title');
 const taskDescription = document.querySelector('#create_description');
 const taskLists = document.querySelector('#todo_list');
 
-let tasks = [];
+const tasks = [
+    {
+        id: 323121,
+        title: "test",
+        description: "desc",
+        done: false
+    }
+];
 
 class Parent {
     constructor() {
+        // this.addTask(e);
+        this.render();
+        // this.deleteTask(e);
+        // this.editTask();
+        // this.checkTask();
     }
     addTask(e) {
         // Відміна відправки форми
@@ -25,7 +37,9 @@ class Parent {
 
         tasks.push(newTask);
 
-        const taskHTML = `
+        console.log(tasks);
+
+        const newHTML = `
             <li id="${newTask.id}" class="list_item">
                 <div class="todo_list_top">
                     <div class="list_top_left">
@@ -101,9 +115,29 @@ class Parent {
             }
         }
     }
+    render() {
+        return `<ul>${tasks.forEach(task => {
+            const tasksHTML = `
+            <li id="${task.id}" class="list_item">
+                <div class="todo_list_top">
+                    <div class="list_top_left">
+                        <i class="bi bi-circle check-item" data-action="done"></i>
+                        <input class="list_title" value="${task.title}" readonly></input>
+                    </div>
+                    <div class="list_top_right">
+                        <button class="icon-edit-3 edit" data-action="edit"></button>
+                        <button class="save-edit bi bi-save edit-none none" data-action="save-edit"></button>
+                        <button class="icon-trash-2-1" data-action="delete"></button>
+                    </div>
+                </div>
+                <input class="todo_list_bottom" value="${task.description}" readonly></input>
+            </li>`
+        })} </ul>`
+        taskLists.insertAdjacentHTML('beforeend', tasksHTML);
+    }
 }
 
-const iss = new Parent();
+const iss = new Parent(tasks);
 
 // Додавання задач
 form.addEventListener('submit', iss.addTask);
