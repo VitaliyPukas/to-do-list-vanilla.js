@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <!-- <div class="wrapper">
         <header>
             <div class="container cloud">
                 <h1>My Tasks</h1>
@@ -45,8 +45,16 @@
                 </ul>
             </div>
         </footer>
-    </div>
+    </div> -->
+    <div id="like_button_container"></div>
 
-    <script src="/js/class.js"></script>
+      <!-- Завантажимо React. -->
+  <!-- Примітка: перед розгортанням на продакшн, замініть "development.js" на "production.min.js". -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Завантажимо наш React-компонент. -->
+  <script src="/js/like_button.js"></script>
+    <!-- <script src="/js/class.js"></script> -->
 </body>
 </html>
