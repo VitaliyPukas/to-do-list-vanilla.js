@@ -5,23 +5,21 @@ const taskLists = document.querySelector('#todo_list');
 
 let tasks = [
     {
-        id: 24242424,
-        title: "Test",
-        description: "test desc",
+        id: 1111111,
+        title: 'titleInput',
+        description: 'descriptionInput',
         done: false,
     }
 ];
-// отримати з локал
-if (localStorage.getItem('tasks')) {
-    tasks = JSON.parse(localStorage.getItem('tasks'));
-    tasks.forEach((task) => renderTask(task));
-}
+
+
+
 
 class Parent {
     constructor() {
-
-        this.addTask();
         this.renderTask();
+        this.addTask();
+        // this.saveToLocalStorage();
     }
 
     addTask(e) {
@@ -43,9 +41,10 @@ class Parent {
         console.log("tasks", tasks)
 
         // saveToLocalStorage();
-
-        renderTask(newTask);
-
+        if (tasks.length > 0) {
+            localStorage.setItem('tasks', JSON.stringify(tasks))
+            renderTask(tasks);
+        }
         // Очищаємо поле вводу
         taskTitle.value = '';
         taskDescription.value = '';
@@ -114,14 +113,15 @@ class Parent {
     //     }
     // }
 
-    // saveToLocalStorage() {
+    // saveToLocalStorage(tasks) {
     //     localStorage.setItem('tasks', JSON.stringify(tasks))
     // }
 
-    renderTask(task) {
-        const taskHTML = `
-        //логіка для ітерування лішок
-        <li id="${task.id}" class="list_item">
+    renderTask(array) {
+        console.log("render");
+        const taskHTML = tasks.forEach(task => {
+            return (
+                ` <li id="${task.id}" class="list_item">
             <div class="todo_list_top">
                 <div class="list_top_left">
                     <i class="bi bi-circle check-item" data-action="done"></i>
@@ -134,19 +134,26 @@ class Parent {
                 </div>
             </div>
             <input class="todo_list_bottom" value="${task.description}" readonly></input>
-        </li>
-        `
+        </li>`
+            )
+        }
+        );
 
         // Додаємо задачу в список
         taskLists.insertAdjacentHTML('beforeend', taskHTML);
+        // taskLists.innerHTML = htmlList;
     }
 }
 
-let nnn = new Parent();
+
+
+const nnn = new Parent(tasks);
 
 
 // Додавання задач
-form.addEventListener('submit', nnn.addTask(e));
+form.addEventListener('submit', nnn.addTask());
+
+
 
 // // Видалення задач
 // taskLists.addEventListener('click', deleteTask);
