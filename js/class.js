@@ -120,6 +120,7 @@ class Parent {
 
     renderTask(task) {
         const taskHTML = `
+        //логіка для ітерування лішок
         <li id="${task.id}" class="list_item">
             <div class="todo_list_top">
                 <div class="list_top_left">
@@ -133,7 +134,8 @@ class Parent {
                 </div>
             </div>
             <input class="todo_list_bottom" value="${task.description}" readonly></input>
-        </li>`
+        </li>
+        `
 
         // Додаємо задачу в список
         taskLists.insertAdjacentHTML('beforeend', taskHTML);
